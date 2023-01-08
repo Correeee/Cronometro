@@ -1,0 +1,159 @@
+:root{
+    --color-rojo: #e63946;
+    --color-azul: #457b9d;
+    --color-fondo: #f0d02f;
+}
+
+html{
+    font-size: 62,5%;
+    color: white;
+    margin: 0 0;
+    padding: 0 0;
+    font-family: 'Alata', sans-serif;
+}
+
+body{
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--color-fondo);
+}
+
+.div__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 5rem;
+    user-select: none;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.timer{
+    font-size: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5rem 0;
+    user-select: none;
+}
+
+h2{
+    margin: 0 0.5rem;
+    text-align: center;
+}
+
+.horario{
+    width: 10rem;
+}
+
+.div__btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button{
+    margin: 3rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 5px solid white;
+    font-size: 3rem;
+    color: white;
+    transition: 0.2s;
+}
+
+.btn__play{
+    background-color: var(--color-azul);
+    cursor:pointer;
+}
+
+.btn__stop{
+    background-color: var(--color-rojo);
+    cursor:pointer;
+}
+
+.btn__play:hover, .btn__stop:hover{
+    background-color: #52b788;
+}
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 10;
+    margin: 0 0;
+}
+
+h4{
+    font-size: medium;
+    margin: 0 0;
+}
+
+a{
+    font-size: large;
+    text-decoration: none;
+    color: var(--color-rojo);
+    transition: 0.2s;
+}
+
+a:hover{
+    color: var(--color-azul);
+}
+
+
+/*MEDIA*/
+
+@media screen and (max-width: 425px) {
+    
+    h1, h2{
+        font-size: 3rem;
+    }
+
+    button{
+        font-size: 2rem;
+        width: 6rem;
+        height: 6rem;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+
+    h1, h2{
+        font-size: 2rem;
+    }
+
+    button{
+        width: 5rem;
+        height: 5rem;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    h1, h2{
+        font-size: 2rem;
+    }
+
+    button{
+        font-size: 1rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+}

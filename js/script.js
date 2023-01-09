@@ -10,74 +10,143 @@ console.log("Segundos:" , segundos);
 let milesimas = 0
 console.log("Milésimas:" , milesimas);
 
+var intervalo_milesimas;
+var intervalo_minutos;
+var intervalo_segundos;
 
-function play(){
+let sound_play = new Audio ("sound/play.mp3")
+let sound_stop = new Audio ("sound/stop.mp3")
+
+function sonido(){
     let btn_play = document.getElementById("btn_play");
 
-    btn_play.addEventListener("click" , function(e){
+        btn_play.addEventListener("click" , function(e){
+                sound_play.play();
+                sound_play.currentTime = 0;
+        })
+        
+}
 
-            if(btn_play.textContent == "►"){
 
-                btn_play.innerHTML = "||"
-                
-                function sumar_milesimas(){
-                    milesimas = milesimas + 1;
-                    let h2_milesimas = document.getElementById("milesimas")
+function play(){
 
-                    h2_milesimas.innerText = milesimas
-                    console.log("Milésimas:" , milesimas)
+    let btn_play = document.getElementById("btn_play");
 
-                    if(milesimas == 10){
-                        milesimas = 0; 
+        btn_play.addEventListener("click" , function(e){
+            document.getElementById("timer").style.backgroundColor="#52b788"; //CAMBIA COLOR
+            if(btn_play.innerHTML == "►"){
+
+                    function sumar_milesimas(){
+                        milesimas = milesimas + 1;
+                        let h2_milesimas = document.getElementById("milesimas")
+
+                        h2_milesimas.innerText = milesimas
+                        console.log("Milésimas:" , milesimas)
+
+                        if(milesimas == 10){
+                            milesimas = 0; 
+                        }
+
+                        btn_play.addEventListener("click" , function(e){
+                            clearInterval(intervalo_milesimas);
+                        })
+                        
                     }
+
+                    intervalo_milesimas = setInterval(sumar_milesimas , 100);
+            
+                    function sumar_segundos(){
+                        segundos = segundos + 1;
+                        console.log("Segundos:" , segundos)
+
+                        let h2_segundos = document.getElementById("segundos");
+                        h2_segundos.innerText = segundos;
+                        
+                        if(segundos == 60){
+                            segundos = 0; 
+                        }
+
+                        btn_play.addEventListener("click" , function(e){
+                            clearInterval(intervalo_segundos);
+                        })
+                        
+                    }
+
+                    intervalo_segundos = setInterval(sumar_segundos , 1000);
+            
+                    function sumar_minutos(){
+                        minutos = minutos + 1;
+                        console.log("Minutos:" , minutos)
+
+                        let h2_minutos = document.getElementById("minutos");
+                        h2_minutos.innerText = minutos;
+
+                        btn_play.addEventListener("click" , function(e){
+                            clearInterval(intervalo_minutos);
+                        })
+                        
+                    }
+                    
+                    intervalo_minutos = setInterval(sumar_minutos , 100000);
+
+                    btn_play.innerHTML = "||";
+                    stop();
                     
                 }
 
-                let intervalo_milesimas = setInterval(sumar_milesimas , 100);
-                intervalo_milesimas;
-        
-                function sumar_segundos(){
-                    segundos = segundos + 1;
-                    console.log("Segundos:" , segundos)
-
-                    h2_segundos = document.getElementById("segundos");
-                    h2_segundos.innerText = segundos;
+                btn_play.addEventListener("click" , function(e){
                     
-                    if(segundos == 60){
-                        segundos = 0; 
-                    }
-                }
-                let intervalo_segundos = setInterval(sumar_segundos , 1000);
-                intervalo_segundos;
-        
-                function sumar_minutos(){
-                    minutos = minutos + 1;
-                    console.log("Minutos:" , minutos)
+                    if(btn_play.innerHTML == "||"){
 
-                    h2_minutos = document.getElementById("minutos");
-                    h2_minutos.innerText = minutos;
-
+                        btn_play.innerHTML = "►"; 
+                    
+                        console.log("Cronómetro en pausa ⏸️")
+                        clearInterval(intervalo_minutos);
+                        clearInterval(intervalo_segundos);
+                        clearInterval(intervalo_milesimas);
+                        
+                        console.log("TIEMPO: " + minutos + " min. : " + segundos + " seg. : " + milesimas + " mil." )
+                        play();
                 }
+                })
                 
-                let intervalo_minutos = setInterval(sumar_minutos , 10000);
-                intervalo_minutos;
-            }
+        })
+}
 
+function stop(){
 
-            else if(btn_play.textContent == "||"){
+    let btn_stop = document.getElementById("btn_stop");
 
-                btn_play.innerHTML = "►"
+    btn_stop.addEventListener("click" , function(e){
 
-                console.log("Milésimas detenidas")
+        if(btn_play.innerHTML == "►"){
+            sound_stop.play();
+            sound_stop.currentTime = 0;
+            console.log("Cronómetro reiniciado")
+            clearInterval(intervalo_minutos);
+            clearInterval(intervalo_segundos);
+            clearInterval(intervalo_milesimas);
+            milesimas = 0
+            minutos = 0
+            segundos = 0
+            
+            let h2_milesimas = document.getElementById("milesimas")
+            h2_milesimas.innerText = "00"
 
-            }
+            let h2_segundos = document.getElementById("segundos");
+            h2_segundos.innerText = "00";
+
+            let h2_minutos = document.getElementById("minutos");
+            h2_minutos.innerText = "00";
+        }
 
     })
 }
 
-
 ///////////FUNCIONES///////////
 
 play();
+sonido();
+
 
 

@@ -2,6 +2,7 @@
     --color-rojo: #e63946;
     --color-azul: #457b9d;
     --color-fondo: #f0d02f;
+    --color-verde: #52b788;
 }
 
 html{
@@ -29,7 +30,9 @@ body{
 }
 
 h1{
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     font-size: 5rem;
     user-select: none;
 }
@@ -47,6 +50,9 @@ h1{
     justify-content: center;
     margin: 5rem 0;
     user-select: none;
+    background-color: var(--color-azul);
+    border: 5px solid white;
+    border-radius: 10px;
 }
 
 h2{
@@ -95,7 +101,7 @@ footer{
     position: absolute;
     bottom: 0;
     left: 10;
-    margin: 0 0;
+    margin: 0.25rem 0;
 }
 
 h4{
@@ -104,7 +110,7 @@ h4{
 }
 
 a{
-    font-size: large;
+    font-size: larger;
     text-decoration: none;
     color: var(--color-rojo);
     transition: 0.2s;
@@ -152,8 +158,8 @@ a:hover{
 
     button{
         font-size: 1rem;
-        width: 3rem;
-        height: 3rem;
+        width: 3.5rem;
+        height: 3.5rem;
     }
 
 }

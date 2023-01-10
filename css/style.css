@@ -199,14 +199,4 @@ a:hover{
         flex-wrap: wrap;
     }
 
-    h1, h2{
-        font-size: 2rem;
-    }
-
-    button{
-        font-size: 1rem;
-        width: 5rem;
-        height: 5rem;
-    }
-
 }

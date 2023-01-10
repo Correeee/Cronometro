@@ -33,9 +33,9 @@ function play(){
     let btn_play = document.getElementById("btn_play");
 
         btn_play.addEventListener("click" , function(e){
-            document.getElementById("timer").style.backgroundColor="#52b788"; //CAMBIA COLOR
-            if(btn_play.innerHTML == "►"){
 
+            if(btn_play.innerHTML == "►"){
+            document.getElementById("timer").style.backgroundColor="#52b788"; //CAMBIA COLOR
                     function sumar_milesimas(){
                         milesimas = milesimas + 1;
                         let h2_milesimas = document.getElementById("milesimas")
@@ -97,7 +97,7 @@ function play(){
                 btn_play.addEventListener("click" , function(e){
                     
                     if(btn_play.innerHTML == "||"){
-
+                        document.getElementById("timer").style.backgroundColor="#457b9d"
                         btn_play.innerHTML = "►"; 
                     
                         console.log("Cronómetro en pausa ⏸️")
@@ -120,6 +120,7 @@ function stop(){
     btn_stop.addEventListener("click" , function(e){
 
         if(btn_play.innerHTML == "►"){
+            document.getElementById("timer").style.backgroundColor="#e63946"
             sound_stop.play();
             sound_stop.currentTime = 0;
             console.log("Cronómetro reiniciado")
@@ -139,7 +140,7 @@ function stop(){
             let h2_minutos = document.getElementById("minutos");
             h2_minutos.innerText = "00";
         }
-
+        
     })
 }
 

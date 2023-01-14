@@ -100,6 +100,18 @@ button{
     animation-iteration-count: 1;
 }
 
+.toastify{
+    background: "linear-gradient(to right, #457b9d, #fe63946)";
+    width: "15rem";
+    height: "2rem";
+    font-size: larger;
+    text-align: center;
+    user-select: none;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+
 @keyframes stop_color {
 
     0%{
@@ -188,6 +200,10 @@ a:hover{
     button{
         width: 5rem;
         height: 5rem;
+    }
+
+    .toastify{
+        font-size: medium;
     }
 
 }

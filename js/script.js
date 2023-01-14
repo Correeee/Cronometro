@@ -98,7 +98,7 @@ function play(){
 function stop(){
 
     btn_stop.addEventListener("click" , function(e){
-        
+
         let h2_milesimas = document.getElementById("milesimas")
         let h2_segundos = document.getElementById("segundos");
         let h2_minutos = document.getElementById("minutos");
@@ -107,6 +107,19 @@ function stop(){
             document.getElementById("timer").style.backgroundColor="#e63946"
             sound_stop.play();
             sound_stop.currentTime = 0;
+
+
+            Toastify({
+                text: `${minutos} min : ${segundos} seg : ${milesimas} mil `,
+                duration: 5000,
+                newWindow: false,
+                close: false,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                onClick: function(){} // Callback after click
+            }).showToast();
+
             
             clearInterval(intervalo);
             milesimas = 0
@@ -119,6 +132,7 @@ function stop(){
 
             h2_minutos.innerText = "00";
             console.log("Cronómetro reiniciado")
+
         }
     })
 

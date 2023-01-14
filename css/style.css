@@ -80,6 +80,7 @@ button{
     font-size: 3rem;
     color: white;
     transition: 0.2s;
+    user-select: none;
 }
 
 .btn__play{
@@ -139,6 +140,7 @@ footer{
 h4{
     font-size: medium;
     margin: 0 0;
+    user-select: none;
 }
 
 a{

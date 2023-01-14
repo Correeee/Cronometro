@@ -20,7 +20,6 @@ let btn_play = document.getElementById("btn_play");
 
 ////FUNCIONES////
 
-
 function sonido(){
 
         btn_play.addEventListener("click" , function(e){

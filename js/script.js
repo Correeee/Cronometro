@@ -20,6 +20,7 @@ let btn_play = document.getElementById("btn_play");
 
 ////FUNCIONES////
 
+
 function sonido(){
 
         btn_play.addEventListener("click" , function(e){
@@ -28,7 +29,6 @@ function sonido(){
         })
         
 }
-
 
 function play(){
 
@@ -66,8 +66,14 @@ function play(){
                                         segundos = 0;
                                         minutos++;
                                         let h2_minutos = document.getElementById("minutos");
-                                        h2_minutos.innerText = minutos;
-                                        
+                                        if(minutos < 10 ){
+                                            h2_minutos.innerText = "0" + minutos;
+                                        }
+
+                                        else if(minutos >= 10 ){
+                                            h2_minutos.innerText = minutos;
+                                        }
+
                                     }
                             }
                             
@@ -92,7 +98,12 @@ function play(){
 function stop(){
 
     btn_stop.addEventListener("click" , function(e){
-        if(btn_play.textContent == "►" && milesimas != 0){
+        
+        let h2_milesimas = document.getElementById("milesimas")
+        let h2_segundos = document.getElementById("segundos");
+        let h2_minutos = document.getElementById("minutos");
+
+        if(btn_play.textContent == "►" && h2_milesimas.textContent != 0){
             document.getElementById("timer").style.backgroundColor="#e63946"
             sound_stop.play();
             sound_stop.currentTime = 0;
@@ -102,13 +113,10 @@ function stop(){
             minutos = 0
             segundos = 0
             
-            let h2_milesimas = document.getElementById("milesimas")
             h2_milesimas.innerText = "00"
 
-            let h2_segundos = document.getElementById("segundos");
             h2_segundos.innerText = "00";
 
-            let h2_minutos = document.getElementById("minutos");
             h2_minutos.innerText = "00";
             console.log("Cronómetro reiniciado")
         }

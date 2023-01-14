@@ -101,9 +101,9 @@ button{
 }
 
 .toastify{
-    background: "linear-gradient(to right, #457b9d, #fe63946)";
-    width: "15rem";
-    height: "2rem";
+    background: linear-gradient(to right, #457b9d);
+    width: 15rem;
+    height: 2rem;
     font-size: larger;
     text-align: center;
     user-select: none;
@@ -203,7 +203,9 @@ a:hover{
     }
 
     .toastify{
-        font-size: medium;
+        width: 15rem;
+        height: 1rem;
+        font-size: small;
     }
 
 }

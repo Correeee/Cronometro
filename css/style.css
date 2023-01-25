@@ -153,6 +153,19 @@ a:hover{
     color: var(--color-azul);
 }
 
+/*WEB*/
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+  *::-webkit-scrollbar-track {
+    background: whitesmoke;
+}
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-azul);
+}
 
 /*MEDIA*/
 
